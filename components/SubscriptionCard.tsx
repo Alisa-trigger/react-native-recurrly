@@ -36,14 +36,17 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
             {expanded && (
                 <View className='sub-bdy '>
                    <View className='sub-details'>
+                   {paymentMethod?.trim() && (
                       <View className='sub-row'>
                         <View className='sub-row-copy'>
                             <Text className='sub-label'>Payment:</Text>
                             <Text className='sub-value' numberOfLines={1}
-                            ellipsizeMode='tail'>{paymentMethod?.trim()}</Text>
+                            ellipsizeMode='tail'>{paymentMethod.trim()}</Text>
                         </View>
                    </View>
+                   )}
 
+                   {(category?.trim() || plan?.trim()) && (
                        <View className='sub-row'>
                         <View className='sub-row-copy'>
                             <Text className='sub-label'>Category:</Text>
@@ -51,30 +54,37 @@ const SubscriptionCard = ({ name, price, currency, icon, billing, color, categor
                             ellipsizeMode='tail'>{category?.trim() || plan?.trim()}</Text>
                         </View>
                    </View>
+                   )}
 
+                   {startDate && (
                        <View className='sub-row'>
                         <View className='sub-row-copy'>
                             <Text className='sub-label'>Started:</Text>
                             <Text className='sub-value' numberOfLines={1}
-                            ellipsizeMode='tail'>{startDate ? formatSubscriptionDateTime(startDate) : ''  }</Text>
+                            ellipsizeMode='tail'>{formatSubscriptionDateTime(startDate)}</Text>
                         </View>
                    </View>
+                   )}
 
+                   {renewalDate && (
                        <View className='sub-row'>
                         <View className='sub-row-copy'>
                             <Text className='sub-label'>Renewal Date:</Text>
                             <Text className='sub-value' numberOfLines={1}
-                            ellipsizeMode='tail'>{renewalDate ? formatSubscriptionDateTime(renewalDate) : ''}</Text>
+                            ellipsizeMode='tail'>{formatSubscriptionDateTime(renewalDate)}</Text>
                         </View>
                    </View>
+                   )}
 
+                   {status && (
                        <View className='sub-row'>
                         <View className='sub-row-copy'>
                             <Text className='sub-label'>Status:</Text>
                             <Text className='sub-value' numberOfLines={1}
-                            ellipsizeMode='tail'>{status? formatStatusLabel(status) : '' }</Text>
+                            ellipsizeMode='tail'>{formatStatusLabel(status)}</Text>
                         </View>
                    </View>
+                   )}
 
                 </View>
                 </View> 
