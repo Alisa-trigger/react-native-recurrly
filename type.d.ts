@@ -45,11 +45,11 @@ declare global {
     }
 
     interface UpcomingSubscriptionCardProps
-        extends Omit<UpcomingSubscription, "id"> { }
+        extends Omit<UpcomingSubscription, "id"> {}
 
     interface ListHeadingProps {
         title: string;
     }
 }
 
-export { };
+export {};
